@@ -16,6 +16,7 @@ body {
   font-family: 'Exo 2', sans-serif;
   display: flex;
   flex-direction: column;
+  
 }
 
 /* -----------------------------------------
@@ -164,6 +165,11 @@ body {
   flex-wrap: wrap;
   flex: 1;
   padding: 1rem;
+  
+  & > div {
+    perspective: 600px;
+    perspective-origin: center;
+  }
 }
 
 .animal {

@@ -11,9 +11,9 @@
 /* Exercício 1: Criar uma transição para quando o mouse estiver em cima dos
  * botões play/stop (para que o elemento se revele lentamente)
  */
- #controles ul {
-
- }
+#controles ul {
+  transition: transform 300ms ease-out;
+}
 
 /*
  * Exercício 2: Você deve implementar uma metáfora visual para cada um dos 4
@@ -23,18 +23,47 @@
  *   - com-raiva: animal fica pulsando
  *   - atacando: animal dá um salto e cresce, com uma borda vermelha
  */
-.com-fome {
 
+@keyframes piscando {
+  from { opacity: 0; }
+  to { opacity: 30% }
+}
+
+@keyframes girando {
+  0% { transform: rotateY(0deg); }
+  25% { transform: rotateY(90deg); }
+  50% { transform: rotateY(180deg); }
+  75% { transform: rotateY(270deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes pulsando {
+  from { transform: scale(1, 1); }
+  to { transform: scale(1.10, 1.10); }
+}
+
+@keyframes pulando {
+  0% { transform: scale(1, 1); }
+  50% { transform: scale(1.25, 1.25); }
+  100% { transform: scale(1, 1); }
+}
+
+.com-fome {
+  animation: piscando 0.5s ease-in-out 0s infinite alternate,
+             pulsando 0.2s ease-in-out 0s infinite alternate;
 }
 
 .satisfeito {
-
+  border-color: greenyellow;
+  animation: girando 0.7s ease-in-out 0s infinite;
 }
 
 .com-raiva {
-
+  border-color: orange;
+  animation: pulsando 0.2s ease-in-out 0s infinite alternate;
 }
 
 .atacando {
-
+  border-color: red;
+  animation: pulando 0.6s ease-in-out 0s;
 }

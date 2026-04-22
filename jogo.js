@@ -43,7 +43,7 @@ function preencheAnimaisNaTela() {
     markupAnimais = '';
 
   for (let animal of animais) {
-    markupAnimais += `<img id="${animal}" src="imgs/${animal}.jpg" class="animal">`;
+    markupAnimais += `<div><img id="${animal}" src="imgs/${animal}.jpg" class="animal"></div>`;
   }
 
   tela.innerHTML = markupAnimais;
